@@ -129,12 +129,13 @@ h2 {
     box-shadow: 9px 9px 16px #b1b1b1, -9px -9px 16px #ffffff;
 }
 
+/* Footer styling */
 footer {
+    background-color: #333;
+    color: white;
     text-align: center;
-    padding: 20px;
-    background: #e0e5ec;
-    color: #333;
-    box-shadow: 9px 9px 16px #bebebe, -9px -9px 16px #ffffff;
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
     position: relative;
     bottom: 0;
     width: 100%;
@@ -169,5 +170,17 @@ footer {
     nav ul li a {
         display: block;
         padding: 10px; /* Add padding for better touch area */
+    }
+
+}
+
+/* Responsive styling for footer */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px; /* Add some padding on smaller screens */
+    }
+    
+    footer p {
+        font-size: 14px; /* Adjust font size for better readability */
     }
 }
