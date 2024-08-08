@@ -16,6 +16,7 @@ header {
     padding: 20px;
     text-align: center;
     box-shadow: 9px 9px 16px #bebebe, -9px -9px 16px #ffffff;
+    position: relative;
 }
 
 header h1 {
@@ -26,11 +27,16 @@ header h1 {
     letter-spacing: 1.5px;
 }
 
+nav {
+    margin-top: 10px;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -45,6 +51,44 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #185a9d;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+nav.active ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #e0e5ec;
+    width: 100%;
+    box-shadow: 9px 9px 16px #bebebe, -9px -9px 16px #ffffff;
+    z-index: 1000;
+}
+
+nav ul {
+    display: none;
+}
+
+nav.active ul {
+    display: flex;
 }
 
 main {
@@ -96,4 +140,34 @@ footer {
     width: 100%;
 }
 
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: row; /* Change to row */
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        z-index: 1000;
+        justify-content: center; /* Center items horizontally */
+    }
 
+    nav ul.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0; /* Remove horizontal margin */
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px; /* Add padding for better touch area */
+    }
+}

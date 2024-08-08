@@ -10,6 +10,11 @@
     <header>
         <h1>6reen</h1>
         <h3>Overtourism Management Solution</h3>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <nav>
             <ul>
                 <li><a href="#problem-statement">Problem Statement</a></li>
@@ -25,6 +30,7 @@
             </ul>
         </nav>
     </header>
+    
     <main>
         <section id="problem-statement">
             <h2>Problem Statement</h2>
@@ -196,3 +202,11 @@
     <script src="scripts.js"></script>
 </body>
 </html>
+
+<script>
+    function toggleMenu() {
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('active');
+    }
+</script>
+
