@@ -3,8 +3,27 @@ import "./App.css";
 import Navigationbar from "./components/Navigationbar";
 import phoneImage from "./assets/phones.png";
 import Footer from "./components/Footer";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+
 
 function App() {
+  const phoneRef = useRef(null); // Create a ref for the phone image
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      gsap.to(phoneRef.current, {
+        scale: 0.5 + scrollY / 2000, // Scale based on scroll
+        rotate: 1.2 * (scrollY / 100), // Rotate based on scroll
+        duration: 0.5,
+        ease: "power3.out"
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <Router>
       <div className="App">
@@ -107,13 +126,14 @@ function App() {
         <div className="flex justify-center mt-8 bg-gradient-to-b from-[#ffffff] to-[#50D0BF]">
           <div className="relative">
             <img
+              ref={phoneRef} // Attach the ref to the image
               src={phoneImage}
               alt="Phone"
               className="w-full max-w-xs md:max-w-md"
             />
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   );

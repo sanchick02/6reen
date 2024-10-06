@@ -15,7 +15,7 @@ const Navigationbar = () => {
         {/* Desktop menu */}
         <ul className="hidden md:flex space-x-8">
           <li>
-            <Link to="/about-us" className="text-black hover:text-gray-300">
+            <Link to="/about-us" className="text-black hover:text-gray-900 hover:font-bold">
               About Us
             </Link>
           </li>
