@@ -96,11 +96,20 @@ function App() {
           </div>
         </div>
 
-        {/* Button */}
+        {/* Mailchimp Subscribe Form */}
         <div className="flex justify-center mt-8">
-          <button className="top-0 bg-gradient-to-r from-[#4088FF] to-[#50D0BF] text-white font-bold px-4 rounded-2xl h-[48px] flex items-center justify-center">
-            Our app is coming soon
-          </button>
+          <form action={process.env.REACT_APP_MAILCHIMP_URL} method="post" className="flex items-center">
+            <input
+              type="email"
+              name="EMAIL"
+              placeholder="Subscribe to see our updates"
+              required
+              className="border border-gray-300 rounded-l-2xl px-4 h-[48px] w-64 max-w-[300px]"
+            />
+            <button type="submit" className="bg-gradient-to-r from-[#4088FF] to-[#50D0BF] text-white font-bold rounded-r-2xl h-[48px] flex items-center justify-center px-4">
+              Subscribe
+            </button>
+          </form>
         </div>
 
         {/* Phone Image */}
